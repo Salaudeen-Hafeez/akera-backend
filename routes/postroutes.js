@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { client } from '../database/db';
+import { client, getUserParcels } from '../database/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {
@@ -27,22 +27,43 @@ const { sign } = jwt;
 middle ware. Then get the user data using the getUser function.
 Then compare the user passwords. If all the credentials pass the 
 check, generate token for the user */
-postRouter.post('/login', verifyLogin, async (req, res, next) => {
+postRouter.post('/login', verifyLogin, async (req, res) => {
   const { email, password } = req.body;
-  const incomingUser = { _email: email };
   try {
-    const user = await getUser(incomingUser);
+    if (!email.includes('@sendit.com')) {
+    const user = await getUser(email);
     const passwordPass = await compare(password, user.rows[0]._password); // Check if the password is correct
     if (!passwordPass) {
       throw new Error('These credentials do not match our records');
     }
-    const packages = await client.query(
-      `SELECT * FROM packages WHERE _username = $1`,
-      [user.rows[0]._username]
-    );
+
+    const packages = await getUserParcels(user.rows[0]._username)
     const token = sign({ id: user.rows[0].users_id }, 'jfgdjdgkfgerg'); // Generate token for the user
     user.rows[0].auth_token = token;
     res.json({ user: user.rows[0], packages: packages.rows });
+
+  } else {
+    const admin = await getAdmin(email);
+    const passwordPass = await compare(password, admin.rows[0]._password); // Check if the admin password is correct
+    if (!passwordPass) {
+      throw new Error(`These credentials do not match our records`);
+    }
+
+    const token = sign(
+      { id: admin.rows[0].admins_id }, // Generate token for the admin
+      'jfgdjdgSenditadminkfgerg'
+    );
+    
+    const packages = await client.query(`SELECT * FROM packages`);
+    const users = await client.query(`SELECT * FROM users`);
+    admin.rows[0].admin_token = token;
+    res.json({
+      admin: admin.rows[0],
+      packages: packages.rows,
+      users: users.rows,
+    });
+  }
+    
   } catch (error) {
     res.status(400).json({ errMessage: error.message });
   }

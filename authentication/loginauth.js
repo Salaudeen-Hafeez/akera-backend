@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { loginValidation } from './reqbodyauth';
-import { client } from '../database/db';
+import { adminExist, client, userExist } from '../database/db';
 
 const { verify } = jwt;
 
@@ -13,15 +13,22 @@ const verifyLogin = async (req, res, next) => {
     const { error } = loginValidation(req.body);
     if (error) {
       throw new Error(error.details[0].message);
+    } else {
+      if (!email.includes('@sendit.com')) {
+        const userExist = await userExist(email)
+        if (!userExist.rows[0].exists) {
+        throw new Error(`These credentials do not match our records`);
+        }
+        next();
+      } else {
+        const adminExist = await adminExist(email)
+        if (!adminExist.rows[0].exists) {
+        throw new Error(`These credentials do not match our records`);
+        }
+        next();
+      }
     }
-    const userExist = await client.query(
-      `SELECT EXISTS(SELECT 1 FROM users WHERE _email = $1)`,
-      [email]
-    );
-    if (!userExist.rows[0].exists) {
-      throw new Error(`These credentials do not match our records`);
-    }
-    next();
+    
   } catch (error) {
     res.status(400).json({ errMessage: error.message });
   }

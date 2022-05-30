@@ -12,10 +12,24 @@ const client = new Client({
 
 client.connect();
 
-const getUser = (incomingUser) => {
-  const key = Object.keys(incomingUser);
-  const value = Object.values(incomingUser);
-  const user = client.query(`SELECT * FROM users WHERE ${key[0]} = $1`, value);
+const userExist = (username) => {
+  const check = client.query(
+    `SELECT EXISTS(SELECT 1 FROM users WHERE _username = $1)`,
+    [username]
+  );
+  return check
+}
+
+const parcelExist = (username) => {
+  const check = client.query(
+    `SELECT EXISTS(SELECT 1 FROM parcels WHERE _username = $1)`,
+    [username]
+  );
+  return check
+}
+
+const getUser = (email) => {
+  const user = client.query(`SELECT * FROM users WHERE _email = $1`, [email]);
   return user;
 };
 
@@ -24,29 +38,16 @@ const getAdmin = (email) => {
   return admin;
 };
 
-const getPackage = (email) => {
-  const parcel = client.query(`SELECT * FROM packages WHERE _username = $1`, [
-    email,
+const getParcels = (email) => {
+  const admin = client.query(`SELECT * FROM admins WHERE _email = $1`, [email]);
+  return admin;
+};
+
+const getUserParcels = (username) => {
+  const parcel = client.query(`SELECT * FROM parcels WHERE _username = $1`, [
+    username,
   ]);
   return parcel;
-};
-
-const updateUser = (key, value, con) => {
-  const user = client.query(
-    `UPDATE users SET ${key} = $1 WHERE 
-      _email = $2 RETURNING *`,
-    [value, con]
-  );
-  return user;
-};
-
-const updatePackage = (key, value, con) => {
-  const userpackage = client.query(
-    `UPDATE packages SET ${key} = $1 WHERE 
-      parcel_id = $2 RETURNING *`,
-    [value, con]
-  );
-  return userpackage;
 };
 
 const postUser = (userData) => {
@@ -79,7 +80,7 @@ const postAdmin = (adminData) => {
   return newAdmin;
 };
 
-const postPackage = (packageData) => {
+const postParcel = (packageData) => {
   const newPackage = client.query(
     `INSERT INTO packages (
         _name,
@@ -100,6 +101,15 @@ const postPackage = (packageData) => {
   return newPackage;
 };
 
+const updateParcel = (key, value, con) => {
+  const userpackage = client.query(
+    `UPDATE parcels SET ${key} = $1 WHERE 
+      parcel_id = $2 RETURNING *`,
+    [value, con]
+  );
+  return userpackage;
+};
+
 const deleteUser = (userData) => {
   const deletedUser = client.query(
     `DELETE FROM users WHERE _username = $1 OR 
@@ -109,34 +119,26 @@ const deleteUser = (userData) => {
   return deletedUser;
 };
 
-const deletePackage = (packageCon) => {
+const deleteParcel = (parcelId) => {
   const deletedPackage = client.query(
     `DELETE FROM packages WHERE _username = $1 AND 
        parcel_id = $2 RETURNING *`,
-    packageCon
+    [parcelId]
   );
   return deletedPackage;
 };
 
-const _client = client;
-export { _client as client };
-const _getUser = getUser;
-export { _getUser as getUser };
-const _getAdmin = getAdmin;
-export { _getAdmin as getAdmin };
-const _getPackage = getPackage;
-export { _getPackage as getPackage };
-const _postUser = postUser;
-export { _postUser as postUser };
-const _postAdmin = postAdmin;
-export { _postAdmin as postAdmin };
-const _postPackage = postPackage;
-export { _postPackage as postPackage };
-const _updateUser = updateUser;
-export { _updateUser as updateUser };
-const _updatePackage = updatePackage;
-export { _updatePackage as updatePackage };
-const _deleteUser = deleteUser;
-export { _deleteUser as deleteUser };
-const _deletePackage = deletePackage;
-export { _deletePackage as deletePackage };
+export {
+  userExist,
+  parcelExist,
+  getUser, 
+  getAdmin, 
+  getParcels, 
+  getUserParcels, 
+  postUser, 
+  postAdmin, 
+  postParcel,
+  updateParcel,
+  deleteUser,
+  deleteParcel
+}
