@@ -2,7 +2,7 @@ import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import model from '../database/db';
+import * as model from '../database/db';
 import {
   verifyLogin,
   verifyToken,
