@@ -14,16 +14,16 @@ client.connect();
 
 const userExist = (username) => {
   const check = client.query(
-    `SELECT EXISTS(SELECT 1 FROM users WHERE _username OR _email = $1)`,
-    [username]
+    `SELECT EXISTS(SELECT 1 FROM users WHERE _email = $1 OR _username = $2)`,
+    [username, username]
   );
   return check
 }
 
 const adminExist = (username) => {
   const check = client.query(
-    `SELECT EXISTS(SELECT 1 FROM users WHERE _username OR _email = $1)`,
-    [username]
+    `SELECT EXISTS(SELECT 1 FROM admins WHERE _email = $1 OR _username = $2)`,
+    [username, username]
   );
   return check
 }
