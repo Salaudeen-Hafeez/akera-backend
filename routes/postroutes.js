@@ -78,6 +78,7 @@ postRouter.post('/signup', async (req, res) => {
           user.password = hashPass;
           const userData = Object.values(user);
           userData[4] = 'active';
+          userData[5] = 'user';
           const newUser = await model.postUser(userData);
           if (newUser.rows[0].users_id) {
             const packages = await model.getUserParcels(newUser.rows[0]._username);
@@ -93,6 +94,7 @@ postRouter.post('/signup', async (req, res) => {
           admin.password = hashPass;
           const adminData = Object.values(admin);
           adminData[4] = 'active';
+          userData[5] = 'admin';
           const newAdmin = await model.postAdmin(adminData);
           if (newAdmin.rows[0].users_id) {
             res.json({ admin: newAdmin.rows[0] });
