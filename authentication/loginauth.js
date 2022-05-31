@@ -28,49 +28,8 @@ const verifyLogin = async (req, res, next) => {
         next();
       }
     }
-    
   } catch (error) {
     res.status(400).json({ errMessage: error.message });
-  }
-};
-
-/* Login authentication middle ware. First validate the admin 
-login credentials using loginValidation function. Then check if 
-the admin exist. if all the check pass run the next() function */
-const verifyAdminLogin = async (req, res, next) => {
-  const { email } = req.body;
-  try {
-    const { error } = loginValidation(req.body);
-    if (error) {
-      throw new Error(error.details[0].message);
-    }
-    const adminExist = await client.query(
-      `SELECT EXISTS(SELECT 1 FROM admins WHERE _email = $1)`,
-      [email]
-    );
-    if (!adminExist.rows[0].exists) {
-      throw new Error(`These credentials do not match our records`);
-    }
-    next();
-  } catch (error) {
-    res.status(400).json({ errMessage: error.message });
-  }
-};
-
-/* Verify token middle ware. First check if the user is admin,
-if the user is admin then verify the admin token otherwise 
-verify the user token */
-const verifyUserToken = (req, res, next) => {
-  const { token, email, username } = req.params;
-  if (!token && !(email || username)) {
-    throw new Error('Access denied');
-  } else {
-    try {
-      verify(token, 'jfgdjdgkfgerg');
-      next();
-    } catch (error) {
-      res.status(400).json({ errMessage: 'Invalid token' });
-    }
   }
 };
 
@@ -80,7 +39,7 @@ const verifyAdminToken = (req, res, next) => {
     throw new Error('Access denied');
   } else {
     try {
-      verify(token, 'jfgdjdgSenditadminkfgerg');
+      verify(token, 'jakeradming');
       next();
     } catch (error) {
       res.status(400).json({ errMessage: 'Invalid token' });
@@ -89,17 +48,19 @@ const verifyAdminToken = (req, res, next) => {
 };
 
 const verifyToken = (req, res, next) => {
-  const { token, email, username } = req.params;
-  if (!token && !(email || username)) {
+  const { token } = req.params;
+  if (!token) {
     throw new Error('Access denied');
   } else {
     try {
-      if (email.includes('@sendit.com')) {
-        verify(token, 'jfgdjdgSenditadminkfgerg');
+      if (role === 'admin') {
+        verify(token, 'jakeradming');
+        next();
+      } else if (role === 'user') {
+        verify(token, 'jakerag');
         next();
       } else {
-        verify(token, 'jfgdjdgkfgerg');
-        next();
+        throw new Error('unauthorised user');
       }
     } catch (error) {
       res.status(400).json({ errMessage: 'Invalid token' });

@@ -14,7 +14,15 @@ client.connect();
 
 const userExist = (username) => {
   const check = client.query(
-    `SELECT EXISTS(SELECT 1 FROM users WHERE _username = $1)`,
+    `SELECT EXISTS(SELECT 1 FROM users WHERE _username OR _email = $1)`,
+    [username]
+  );
+  return check
+}
+
+const adminExist = (username) => {
+  const check = client.query(
+    `SELECT EXISTS(SELECT 1 FROM users WHERE _username OR _email = $1)`,
     [username]
   );
   return check
@@ -33,14 +41,19 @@ const getUser = (email) => {
   return user;
 };
 
+const getUsers = () => {
+  const user = client.query(`SELECT * FROM users`);
+  return user;
+};
+
 const getAdmin = (email) => {
   const admin = client.query(`SELECT * FROM admins WHERE _email = $1`, [email]);
   return admin;
 };
 
-const getParcels = (email) => {
-  const admin = client.query(`SELECT * FROM admins WHERE _email = $1`, [email]);
-  return admin;
+const getParcels = () => {
+  const parcel = client.query(`SELECT * FROM parcels`);
+  return parcel;
 };
 
 const getUserParcels = (username) => {
@@ -130,8 +143,10 @@ const deleteParcel = (parcelId) => {
 
 export {
   userExist,
+  adminExist,
   parcelExist,
   getUser, 
+  getUsers,
   getAdmin, 
   getParcels, 
   getUserParcels, 
