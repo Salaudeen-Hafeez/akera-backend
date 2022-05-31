@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { loginValidation } from './reqbodyauth';
-import { adminExist, client, userExist } from '../database/db';
+import { adminExist, userExist } from '../database/db';
 
 const { verify } = jwt;
 
@@ -15,14 +15,14 @@ const verifyLogin = async (req, res, next) => {
       throw new Error(error.details[0].message);
     } else {
       if (!email.includes('@sendit.com')) {
-        const userExist = await userExist(email)
-        if (!userExist.rows[0].exists) {
+        const check = await userExist(email)
+        if (!check.rows[0].exists) {
         throw new Error(`These credentials do not match our records`);
         }
         next();
       } else {
-        const adminExist = await adminExist(email)
-        if (!adminExist.rows[0].exists) {
+        const check = await adminExist(email)
+        if (!check.rows[0].exists) {
         throw new Error(`These credentials do not match our records`);
         }
         next();
@@ -30,20 +30,6 @@ const verifyLogin = async (req, res, next) => {
     }
   } catch (error) {
     res.status(400).json({ errMessage: error.message });
-  }
-};
-
-const verifyAdminToken = (req, res, next) => {
-  const { token, email, username } = req.params;
-  if (!token && !(email || username)) {
-    throw new Error('Access denied');
-  } else {
-    try {
-      verify(token, 'jakeradming');
-      next();
-    } catch (error) {
-      res.status(400).json({ errMessage: 'Invalid token' });
-    }
   }
 };
 
@@ -68,13 +54,18 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const _verifyLogin = verifyLogin;
-export { _verifyLogin as verifyLogin };
-const _verifyAdminLogin = verifyAdminLogin;
-export { _verifyAdminLogin as verifyAdminLogin };
-const _verifyUserToken = verifyUserToken;
-export { _verifyUserToken as verifyUserToken };
-const _verifyAdminToken = verifyAdminToken;
-export { _verifyAdminToken as verifyAdminToken };
-const _verifyToken = verifyToken;
-export { _verifyToken as verifyToken };
+const verifyAdminToken = (req, res, next) => {
+  const { token, email, username } = req.params;
+  if (!token && !(email || username)) {
+    throw new Error('Access denied');
+  } else {
+    try {
+      verify(token, 'jakeradming');
+      next();
+    } catch (error) {
+      res.status(400).json({ errMessage: 'Invalid token' });
+    }
+  }
+};
+
+export {verifyLogin, verifyToken, verifyAdminToken}

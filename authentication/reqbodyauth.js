@@ -39,9 +39,4 @@ const parcelValidation = (data) => {
   return verified;
 };
 
-const _userValidation = userValidation;
-export { _userValidation as userValidation };
-const _loginValidation = loginValidation;
-export { _loginValidation as loginValidation };
-const _parcelValidation = parcelValidation;
-export { _parcelValidation as parcelValidation };
+export {userValidation, loginValidation, parcelValidation}
