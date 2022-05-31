@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { verifyToken } from '../authentication/loginauth';
-import { deletePackage, getParcels } from '../database/db';
+import { deleteParcel, getParcels } from '../database/db';
 
 const deleteRouter = Router();
 
@@ -9,7 +9,7 @@ deleteRouter.delete(
   async (req, res) => {
     const parcelid = parseInt(req.params.parcelid);
     try {
-      const deletedParcel = await deletePackage(parcelid);
+      const deletedParcel = await deleteParcel(parcelid);
       if (deletedParcel.rowCount !== 0) {
         const packages = await getParcels();
         res.json({ packages: packages.rows, package: deletedParcel.rows[0] });
