@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { getParcels, getUserParcels, parcelExist } from '../database/db';
-import {verifyAdminLogin, verifyToken } from '../authentication/loginauth';
+import {verifyAdminToken, verifyToken } from '../authentication/loginauth';
 
 const getRouter = Router();
 
 // GET all the users' packages
-getRouter.get('/parcels', verifyAdminLogin, async (req, res) => {
+getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
   try {
     const packages = await getParcels();
     res.json(packages.rows);
