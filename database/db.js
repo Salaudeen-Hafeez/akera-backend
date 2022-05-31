@@ -86,9 +86,10 @@ const postAdmin = (adminData) => {
         _username,
         _email,
         _password,
-        _status
+        _status,
+        _role
         ) 
-        VALUES ($1, $2, $3, $4, $5)  RETURNING *`,
+        VALUES ($1, $2, $3, $4, $5, $6)  RETURNING *`,
     adminData
   );
   return newAdmin;
