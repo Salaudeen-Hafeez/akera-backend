@@ -64,12 +64,13 @@ postRouter.post('/signup', async (req, res) => {
   if (error) {
     throw new Error(error.details[0].message);
   } else {
+    const email = req.body.email
     const salt = await bcrypt.genSalt(5);
     const hashPass = await bcrypt.hash(req.body.password, salt); // encrypt the password
     try {
 
       if (!email.includes('@sendit.com')){
-        const check = await model.userExist(req.body.email)
+        const check = await model.userExist(email)
         if (check.rows[0].exists) {
         throw new Error('Account exist');
         } else {
@@ -84,7 +85,7 @@ postRouter.post('/signup', async (req, res) => {
           }
         }
       } else {
-        const check = await model.adminExist(req.body.email)
+        const check = await model.adminExist(email)
         if (check.rows[0].exists) {
           throw new Error('Account exist');
         } else {
