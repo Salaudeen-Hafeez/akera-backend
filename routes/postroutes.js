@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import {v4 as uuidv4} from 'uuid'
 
 import * as model from '../database/db';
 import {
@@ -123,7 +124,8 @@ postRouter.post(
       throw new Error(error.details[0].message);
     } else {
       try {
-        res.json({message: 'Inside trycatch'})
+        reqBody['tracking_id'] = uuidv4();
+        res.json(req.body)
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
         const newPackage = await model.postPackage(packageData);
