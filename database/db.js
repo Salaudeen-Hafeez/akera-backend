@@ -107,8 +107,8 @@ const postParcel = (packageData) => {
         _username,
         _cost,
         _status,
-        _weight,
-        tracking_id
+        tracking_id,
+        _weight
         ) VALUES (
           $1, $2, $3, $4,
           $5, $6, $7, $8, $9
