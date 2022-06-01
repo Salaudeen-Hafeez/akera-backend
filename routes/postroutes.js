@@ -120,7 +120,6 @@ postRouter.post(
     }
     const { error } = parcelValidation(reqBody); // Validate the incoming package data
     if (error) {
-      res.json({message: 'parcelValidation failed'})
       throw new Error(error.details[0].message);
     } else {
       try {
