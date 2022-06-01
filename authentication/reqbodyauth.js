@@ -34,6 +34,7 @@ const parcelValidation = (data) => {
     reciever: joi.string().required(),
     frajile: joi.string().required(),
     cost: joi.string().required(),
+    weight: joi.string().required(),
   });
   const verified = schema.validate(data);
   return verified;
