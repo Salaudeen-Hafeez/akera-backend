@@ -127,6 +127,7 @@ postRouter.post(
         reqBody['tracking_id'] = uuidv4();
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
+        res.json(req.body)
         const newPackage = await model.postParcel(packageData);
         if (newPackage.rowCount === 1) {
           const userPackage = await model.getUserParcels(username)
