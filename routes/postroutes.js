@@ -115,6 +115,7 @@ postRouter.post(
   async (req, res) => {
     const { username } = req.params;
     const reqBody = req.body;
+    res.json(req.body)
     if (reqBody.frajile === '') {
       reqBody['frajile'] = 'package not frajile';
     }
