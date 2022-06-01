@@ -16,7 +16,7 @@ CREATE TABLE admins(
     _status VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE packages(
+CREATE TABLE parcels(
     parcel_id SERIAL PRIMARY KEY,
     _username VARCHAR(60) NOT NULL,
     _name VARCHAR(60) NOT NULL,
@@ -26,5 +26,7 @@ CREATE TABLE packages(
     _reciever VARCHAR(60) NOT NULL,
     _frajile VARCHAR(60) NOT NULL,
     _status VARCHAR(60) NOT NULL,
-    _cost VARCHAR(60) NOT NULL
+    _cost VARCHAR(60) NOT NULL,
+    tracking_id VARCHAR(255) NOT NULL,
+    _weight VARCHAR(60)
 );
