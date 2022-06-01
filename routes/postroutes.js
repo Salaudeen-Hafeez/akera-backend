@@ -120,11 +120,11 @@ postRouter.post(
     }
     const { error } = parcelValidation(reqBody); // Validate the incoming package data
     if (error) {
-      res.json(req.body)
+      res.json({message: 'parcelValidation failed'})
       throw new Error(error.details[0].message);
     } else {
       try {
-        res.json(req.body)
+        res.json({message: 'Inside trycatch'})
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
         const newPackage = await model.postPackage(packageData);
