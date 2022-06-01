@@ -125,7 +125,6 @@ postRouter.post(
     } else {
       try {
         reqBody['tracking_id'] = uuidv4();
-        res.json(req.body)
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
         const newPackage = await model.postPackage(packageData);
