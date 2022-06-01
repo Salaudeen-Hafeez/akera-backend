@@ -106,9 +106,9 @@ const postParcel = (packageData) => {
         _frajile,
         _username,
         _cost,
-        _status,
         tracking_id,
-        _weight
+        _weight,
+        _status
         ) VALUES (
           $1, $2, $3, $4,
           $5, $6, $7, $8, $9, $10, $11
