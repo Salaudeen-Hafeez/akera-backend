@@ -4,9 +4,7 @@ import jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid'
 
 import * as model from '../database/db';
-import {
-  verifyLogin,
-} from '../authentication/loginauth';
+import { verifyLogin } from '../authentication/loginauth';
 import {
   userValidation,
   parcelValidation,
@@ -119,10 +117,10 @@ postRouter.post(
     // if (reqBody.frajile === '') {
     //   reqBody['frajile'] = 'package not frajile';
     // }
-    const { error } = parcelValidation(reqBody); // Validate the incoming package data
-    if (error) {
-      //throw new Error(error.details[0].message);
-    } else {
+    // //const { error } = parcelValidation(reqBody); // Validate the incoming package data
+    // if (error) {
+    //   throw new Error(error.details[0].message);
+    // } else {
       try {
         reqBody['tracking_id'] = uuidv4();
         const packageData = Object.values(req.body);
@@ -136,7 +134,6 @@ postRouter.post(
         res.status(400).json({ errMessage: error.message });
       }
     }
-  }
 );
 
 export default postRouter;
