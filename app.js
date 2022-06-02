@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
 });
 
 // The middleware that uses the router module
-app.use('/api/v1/users', getRouter);
-app.use('/api/v1/users', postRouter);
-app.use('/api/v1/users', updateRouter);
-app.use('/api/v1/users', deleteRouter);
+app.use('/api/v1', getRouter);
+app.use('/api/v1', postRouter);
+app.use('/api/v1', updateRouter);
+app.use('/api/v1', deleteRouter);
 
 // The middleware for a bad url request
 app.use((req, res) => {
