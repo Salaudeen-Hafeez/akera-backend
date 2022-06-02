@@ -23,21 +23,21 @@ const loginValidation = (data) => {
   return verified;
 };
 
-// // Validate the package data
-// const parcelValidation = (data) => {
-//   const schema = joi.object({
-//     username: joi.string().required(),
-//     name: joi.string().required(),
-//     location: joi.string().required(),
-//     destination: joi.string().required(),
-//     sender: joi.string().required(),
-//     reciever: joi.string().required(),
-//     frajile: joi.string().required(),
-//     cost: joi.string().required(),
-//     weight: joi.string().required(),
-//   });
-//   const verified = schema.validate(data);
-//   return verified;
-// };
+// Validate the package data
+const parcelValidation = (data) => {
+  const schema = joi.object({
+    username: joi.string().required(),
+    name: joi.string().required(),
+    location: joi.string().required(),
+    destination: joi.string().required(),
+    sender: joi.string().required(),
+    reciever: joi.string().required(),
+    frajile: joi.string().required(),
+    cost: joi.string().required(),
+    weight: joi.string().required(),
+  });
+  const verified = schema.validate(data);
+  return verified;
+};
 
 export {userValidation, loginValidation, parcelValidation}
