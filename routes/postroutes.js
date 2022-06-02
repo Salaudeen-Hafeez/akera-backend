@@ -121,7 +121,7 @@ postRouter.post(
     // }
     const { error } = parcelValidation(reqBody); // Validate the incoming package data
     if (error) {
-      throw new Error(error.details[0].message);
+      //throw new Error(error.details[0].message);
     } else {
       try {
         reqBody['tracking_id'] = uuidv4();
