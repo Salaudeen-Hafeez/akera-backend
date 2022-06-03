@@ -114,7 +114,6 @@ postRouter.post(
   async (req, res) => {
     const { username } = req.params;
     const reqBody = req.body;
-    res.json(reqBody)
     if (reqBody.frajile === '') {
       reqBody['frajile'] = 'package not frajile';
     }
@@ -126,7 +125,7 @@ postRouter.post(
         reqBody['tracking_id'] = uuidv4();
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
-        //res.json({mess: packageData})
+        res.json({mess: packageData})
         const newPackage = await model.postParcel(packageData);
         if (newPackage.rowCount === 1) {
           const userPackage = await model.getUserParcels(username)
