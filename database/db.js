@@ -98,17 +98,17 @@ const postAdmin = (adminData) => {
 const postParcel = (packageData) => {
   const newPackage = client.query(
     `INSERT INTO parcels (
-        _weight,
         _name,
-        _location,
-        _destination,
-        _sender,
-        _reciever,
-        _frajile,
         _cost,
+        _sender,
+        _frajile,
+        _destination,
+        _location,
+        _weight,
+        _reciever,
+        _status,
         _username,
         tracking_id,
-        _status
         ) VALUES (
           $1, $2, $3, $4,
           $5, $6, $7, $8, $9, $10, $11
