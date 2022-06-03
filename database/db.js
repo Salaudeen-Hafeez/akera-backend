@@ -98,7 +98,7 @@ const postAdmin = (adminData) => {
 const postParcel = (packageData) => {
   const newPackage = client.query(
     `INSERT INTO parcels (
-        _weight
+        _weight,
         _name,
         _location,
         _destination,
