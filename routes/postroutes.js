@@ -114,13 +114,13 @@ postRouter.post(
   async (req, res) => {
     const { username } = req.params;
     const reqBody = req.body;
-    if (reqBody.frajile === '') {
-      reqBody['frajile'] = 'package not frajile';
-    }
-    const { error } = parcelValidation(reqBody); // Validate the incoming package data
-    if (error) {
-      throw new Error(error.details[0].message);
-    } else {
+    // if (reqBody.frajile === '') {
+    //   reqBody['frajile'] = 'package not frajile';
+    // }
+    // const { error } = parcelValidation(reqBody); // Validate the incoming package data
+    // if (error) {
+    //   throw new Error(error.details[0].message);
+    // } else {
       try {
         reqBody['tracking_id'] = uuidv4();
         const packageData = Object.values(req.body);
@@ -134,7 +134,7 @@ postRouter.post(
         res.status(400).json({ errMessage: error.message });
       }
     }
-  }
+  //}
 );
 
 export default postRouter;
