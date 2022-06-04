@@ -125,11 +125,12 @@ postRouter.post(
         reqBody['tracking_id'] = uuidv4();
         const packageData = Object.values(req.body);
         packageData.push('Ready for pickup');
-        const newPackage = await model.postParcel(packageData);
-        if (newPackage.rowCount === 1) {
-          const userPackage = await model.getUserParcels(username)
-          res.json({ packages: userPackage.rows, package: newPackage.rows[0] });
-        }
+        res.json({mess: packageData})
+        // const newPackage = await model.postParcel(packageData);
+        // if (newPackage.rowCount === 1) {
+        //   const userPackage = await model.getUserParcels(username)
+        //   res.json({ packages: userPackage.rows, package: newPackage.rows[0] });
+        // }
       } catch (error) {
         res.status(400).json({ errMessage: error.message });
       }
