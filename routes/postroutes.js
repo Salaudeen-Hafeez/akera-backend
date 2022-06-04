@@ -14,6 +14,35 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
+/** 
+  @swagger
+  tags:
+    name: Books
+    description: API to manage your books.
+ **/
+
+/** 
+  @swagger
+ * path:
+ *  /login:
+ *    post:
+ *      summary: Creates a new book
+ *      tags: [Books]
+ *      requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Book'
+ *      responses:
+ *        "200":
+ *          description: The created book.
+ *         content:
+ *            application/json:
+ *             schema:
+ *                $ref: '#/components/schemas/Book'
+ **/
+
 /* User login, first verify login credential using verifyLogin 
 middle ware. Then get the user data using the getUser function.
 Then compare the user passwords. If all the credentials pass the 
