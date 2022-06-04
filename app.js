@@ -22,6 +22,7 @@ const options = {
       },
     ],
   },
+  apis: ["./routes/books.js"],
 };
 
 const app = express();
