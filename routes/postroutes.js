@@ -14,34 +14,31 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
-/** 
-*  @swagger
-* tags:
-*    name: Books
-*    description: API to manage your books.
-*/
-
-/** 
+/**
  * @swagger
- * path:
- *  /login:
- *    post:
- *      summary: Creates a new book
- *      tags: [Books]
- *      requestBody:
- *        required: true
- *        content:
- *          application/json:
- *            schema:
- *              $ref: '#/components/schemas/Book'
- *      responses:
- *        "200":
- *          description: The created book.
+ * /users:
+ *   post:
+ *     summary: Create a JSONPlaceholder user.
+ *     responses:
+ *       201:
+ *         description: Created
  *         content:
- *            application/json:
+ *           application/json:
  *             schema:
- *                $ref: '#/components/schemas/Book'
- */
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: The user ID.
+ *                       example: 0
+ *                     name:
+ *                       type: string
+ *                       description: The user's name.
+ *                       example: Leanne Graham
+*/
 
 /* User login, first verify login credential using verifyLogin 
 middle ware. Then get the user data using the getUser function.
