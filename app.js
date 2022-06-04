@@ -22,7 +22,7 @@ const options = {
       },
     ],
   },
-  apis: ["./routes"],
+  apis: ["./routes/*.js"],
 };
 
 const app = express();
