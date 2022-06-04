@@ -15,14 +15,14 @@ const { compare } = bcrypt;
 const { sign } = jwt;
 
 /** 
-  @swagger
-  tags:
-    name: Books
-    description: API to manage your books.
- **/
+*  @swagger
+* tags:
+*    name: Books
+*    description: API to manage your books.
+*/
 
 /** 
-  @swagger
+ * @swagger
  * path:
  *  /login:
  *    post:
@@ -41,7 +41,7 @@ const { sign } = jwt;
  *            application/json:
  *             schema:
  *                $ref: '#/components/schemas/Book'
- **/
+ */
 
 /* User login, first verify login credential using verifyLogin 
 middle ware. Then get the user data using the getUser function.
