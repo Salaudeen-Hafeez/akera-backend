@@ -1,14 +1,34 @@
 import express from 'express';
 import cors from 'cors';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from "swagger-ui-express"
 import postRouter from './routes/postroutes';
 import getRouter from './routes/getroutes';
 import updateRouter from './routes/updateroutes';
 import deleteRouter from './routes/deleteroutes';
 
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "LogRocket Express API with Swagger",
+      version: "0.1.0",
+      description:
+        "This is a simple CRUD API application made with Express and documented with Swagger",
+    },
+    servers: [
+      {
+        url: "https://akera-backend.herokuapp.com/api/v1",
+      },
+    ],
+  },
+};
+
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)))
 
 // app.use(express.static('public'));
 app.set('view engine', 'ejs');
