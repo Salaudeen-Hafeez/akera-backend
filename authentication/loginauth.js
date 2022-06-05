@@ -34,6 +34,7 @@ const verifyLogin = async (req, res, next) => {
 };
 
 const verifyToken = (req, res, next) => {
+  res.json({mss: 'Inside verifyToken middle ware'})
   if (!token) {
     throw new Error('Access denied');
   } else {
