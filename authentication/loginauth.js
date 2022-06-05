@@ -36,15 +36,15 @@ const verifyLogin = async (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
-  res.json(jwt_decode(token));
+  const decodedToken = jwt_decode(token);
   if (!token) {
     throw new Error('Access denied');
   } else {
     try {
-      if (role === 'admin') {
+      if (decodedToken.role === 'admin') {
         verify(token, 'jakeradming');
         next();
-      } else if (role === 'user') {
+      } else if (decodedToken.role === 'user') {
         verify(token, 'jakerag');
         next();
       } else {
