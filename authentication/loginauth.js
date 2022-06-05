@@ -36,7 +36,7 @@ const verifyLogin = async (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
-  const { role } = jwt_decode(token)
+  res.json(jwt_decode(token));
   if (!token) {
     throw new Error('Access denied');
   } else {
