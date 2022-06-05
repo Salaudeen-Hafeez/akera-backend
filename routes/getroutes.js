@@ -25,7 +25,7 @@ getRouter.get('/parcels/user', verifyToken,
         throw new Error('You do not have any package yet');
       } else {
         const packages = await getUserParcels(username)
-        res.json(packages.rows);
+        res.json({parcels: packages.rows});
       }
     } catch (error) {
       res.status(400).json({ errMessage: error.message });
