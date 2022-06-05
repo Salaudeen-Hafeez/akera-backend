@@ -34,7 +34,6 @@ const verifyLogin = async (req, res, next) => {
 };
 
 const verifyToken = (req, res, next) => {
-  res.json({reques: req})
   if (!token) {
     throw new Error('Access denied');
   } else {
@@ -42,8 +41,7 @@ const verifyToken = (req, res, next) => {
       if (role === 'admin') {
         verify(token, 'jakeradming');
         next();
-      } else if (role === 'user') {
-        verify(token, 'jakerag');
+      } else if (role === 'user') {verify(token, 'jakerag');
         next();
       } else {
         throw new Error('unauthorised user');
