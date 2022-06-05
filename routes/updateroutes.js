@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import jwt from 'jsonwebtoken';
 import { verifyToken } from '../authentication/loginauth';
 import { updateParcel, getUserParcels, getParcels } from '../database/db';
 
@@ -9,6 +10,8 @@ updateRouter.put(
   '/parcels/:id/destination',
   verifyToken,
   async (req, res) => {
+    const token = req.headers.authorization;
+    const {username} = jwt.decode(token);
     const { id } = req.params;
     const con = parseInt(id);
     const value = Object.values(req.body);
