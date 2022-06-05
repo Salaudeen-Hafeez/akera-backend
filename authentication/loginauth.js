@@ -56,8 +56,9 @@ const verifyToken = (req, res, next) => {
 };
 
 const verifyAdminToken = (req, res, next) => {
-  const { token, email, username } = req.params;
-  if (!token && !(email || username)) {
+  const token = req.headers.authorization;
+  const {role} = jwt.decode(token);
+  if (role !== 'admin') {
     throw new Error('Access denied');
   } else {
     try {
