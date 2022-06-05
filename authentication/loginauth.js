@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import jwt_decode from 'jwt-decode'
 import { loginValidation } from './reqbodyauth';
 import { adminExist, userExist } from '../database/db';
 
@@ -36,7 +35,8 @@ const verifyLogin = async (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
-  const decodedToken = jwt_decode(token);
+  res.json(jwt.decode(token))
+  const decodedToken = jwt.decode(token);
   if (!token) {
     throw new Error('Access denied');
   } else {
