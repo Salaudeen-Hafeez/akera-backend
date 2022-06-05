@@ -54,7 +54,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
       throw new Error('These credentials do not match our records');
     }
 
-    const token = sign({ role: user.rows[0]._role }, 'jakerag'); // Generate token for the user
+    const token = sign({ role: user.rows[0]._role, username: user.rows[0]._username }, 'jakerag'); // Generate token for the user
     user.rows[0].auth_token = token;
     res.json({ user: user.rows[0] });
   } else {

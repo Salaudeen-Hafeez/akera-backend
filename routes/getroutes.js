@@ -18,6 +18,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
 getRouter.get('/parcels/user', verifyToken,
   async (req, res) => {
     try {
+      const {username}= jwt_decode(req.headers.authorization)
       const check = await parcelExist(username)
       if (!check.rows[0].exists) {
         throw new Error('You do not have any package yet');
