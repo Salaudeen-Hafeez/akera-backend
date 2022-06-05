@@ -34,7 +34,7 @@ const verifyLogin = async (req, res, next) => {
 };
 
 const verifyToken = (req, res, next) => {
-  const { token } = req.params;
+  res.json({reques: req})
   if (!token) {
     throw new Error('Access denied');
   } else {
