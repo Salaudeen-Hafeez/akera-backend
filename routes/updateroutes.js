@@ -31,6 +31,8 @@ updateRouter.put(
   '/parcels/:id/status',
   verifyToken,
   async (req, res) => {
+    const token = req.headers.authorization;
+    const {username} = jwt.decode(token);
     const { id } = req.params;
     const con = parseInt(id);
     const value = Object.values(req.body);
