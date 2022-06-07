@@ -1,11 +1,21 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken'
-import { getParcels, getUserParcels, parcelExist } from '../database/db';
+import { getParcels, getUserParcels, getUsers, parcelExist } from '../database/db';
 import {verifyAdminToken, verifyToken } from '../authentication/loginauth';
 
 const getRouter = Router();
 
-// GET all the users' packages
+// GET all the users packages
+getRouter.get('/users', verifyAdminToken, async (req, res) => {
+  try {
+    const users = await getUsers();
+    res.json(users.rows);
+  } catch (error) {
+    res.status(400).json({ errMessage: error.message });
+  }
+});
+
+// GET all the users packages
 getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
   try {
     const packages = await getParcels();
