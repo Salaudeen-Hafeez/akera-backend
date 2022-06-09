@@ -8,7 +8,6 @@ const deleteRouter = Router();
  * components:
  *   schemas:
  *     parcelData:
- *       type: object
  *       properties:
  *         username:
  *           type: string

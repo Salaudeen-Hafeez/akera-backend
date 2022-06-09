@@ -18,7 +18,6 @@ const { sign } = jwt;
  * components:
  *   schemas:
  *     loginData:
- *       type: object
  *       properties:
  *         email:
  *           type: string
@@ -36,7 +35,6 @@ const { sign } = jwt;
  * components:
  *   schemas:
  *     userData:
- *       type: object
  *       properties:
  *         id:
  *           type: integer
@@ -62,7 +60,6 @@ const { sign } = jwt;
  * components:
  *   schemas:
  *     parcelData:
- *       type: object
  *       properties:
  *         username:
  *           type: string

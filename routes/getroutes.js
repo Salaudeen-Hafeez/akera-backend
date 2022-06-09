@@ -9,7 +9,6 @@ const getRouter = Router();
  * components:
  *   schemas:
  *     parcelData:
- *       type: object
  *       properties:
  *         username:
  *           type: string
