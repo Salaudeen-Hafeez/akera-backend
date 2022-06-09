@@ -5,6 +5,21 @@ import { updateParcel, getUserParcels, getParcels } from '../database/db';
 
 const updateRouter = Router();
 
+/**"components": {
+ *  "schemas": {
+ *    "user": {
+ *      "properties": {
+ *        "id": {
+ *          "type": "integer"
+ *        },
+ *        "name": {
+ *          "type": "string"
+ *        }
+ *      }
+ *    }
+ *  }
+ *}
+ */
 /**
  * components:
  *   schemas:
@@ -75,7 +90,7 @@ const updateRouter = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/parcelData' 
+ *               $ref: '#/components/schemas/user' 
 */
 
 // UPDATE the status of the user's parcel
