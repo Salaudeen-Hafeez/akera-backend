@@ -152,6 +152,27 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /signup:
+ *   post:
+ *     summary: Create user or admin.
+ *     requestBody:
+ *       description: The API to login the user
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/userData'
+ *     responses:
+ *       201:
+ *         description: Created.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userData' 
+*/
+
 /* Validate the new incoming user data. Then check if 
 the user already exist. If the user does not exist add 
 the user to the database */
@@ -204,6 +225,27 @@ postRouter.post('/signup', async (req, res) => {
     }
   }
 });
+
+/**
+ * @swagger
+ * /parcels:
+ *   post:
+ *     summary: Create new parcels order.
+ *     requestBody:
+ *       description: The API to create new parcel order.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/parcelData'
+ *     responses:
+ *       201:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+*/
 
 /* Verify the user token using verifyToken middle ware. if 
 token is correct, check if the frijile property is empty. 
