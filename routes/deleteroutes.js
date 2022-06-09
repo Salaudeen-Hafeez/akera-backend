@@ -48,7 +48,7 @@ const deleteRouter = Router();
  *           format: int64
  *           minimum: 1
  *     responses:
- *       200:
+ *       '200':
  *         description: Parcel deleted.
  *         content:
  *           application/json:

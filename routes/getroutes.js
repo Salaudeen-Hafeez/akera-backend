@@ -62,7 +62,7 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
  *   get:
  *     summary: The end point to get all users parcels.
  *     responses:
- *       200:
+ *       '200':
  *         description: Logged in.
  *         content:
  *           application/json:
@@ -86,7 +86,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  *   get:
  *     summary: The end point to get all a user's parcels.
  *     responses:
- *       200:
+ *       '200':
  *         description: Returned user's parcels.
  *         content:
  *           application/json:

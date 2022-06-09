@@ -70,7 +70,7 @@ const updateRouter = Router();
  *               newDestination:
  *                 type: string
  *     responses:
- *       200:
+ *       '200':
  *         description: Logged in.
  *         content:
  *           application/json:
@@ -123,7 +123,7 @@ updateRouter.put(
  *               newStatus:
  *                 type: string
  *     responses:
- *       200:
+ *       '200':
  *         description: Logged in.
  *         content:
  *           application/json:
@@ -178,7 +178,7 @@ updateRouter.put(
  *               newStatus:
  *                 type: string
  *     responses:
- *       200:
+ *       '200':
  *         description: Logged in.
  *         content:
  *           application/json:

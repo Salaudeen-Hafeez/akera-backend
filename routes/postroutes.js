@@ -14,7 +14,7 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
- /**
+/**
  * @swagger
  * components:
  *   schemas:
@@ -60,7 +60,7 @@ const { sign } = jwt;
  *           example: active
  */
 
-  /**
+/**
  * @swagger
  * components:
  *   schemas:
@@ -121,7 +121,7 @@ const { sign } = jwt;
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/userData' 
-*/
+ */
 
 /* User login, first verify login credential using verifyLogin 
 middle ware. Then get the user data using the getUser function.
@@ -175,7 +175,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
  *           schema:
  *             $ref: '#/components/schemas/userData'
  *     responses:
- *       201:
+ *       '201':
  *         description: Created.
  *         content:
  *           application/json:
