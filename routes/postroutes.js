@@ -16,6 +16,15 @@ const { sign } = jwt;
 
 /**
  * @swagger
+ * tags:
+ *   - name: Auth
+ *      description: Authenticating users
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     loginData:
@@ -103,6 +112,8 @@ const { sign } = jwt;
  * /login:
  *   post:
  *     summary: Login as user or admin.
+ *     tags:
+ *        -Auth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -163,6 +174,8 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
  * /signup:
  *   post:
  *     summary: Create user or admin.
+ *     tags:
+ *        -Auth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -237,6 +250,8 @@ postRouter.post('/signup', async (req, res) => {
  * /parcels:
  *   post:
  *     summary: Create new parcels order.
+ *     tags:
+ *        -Parcels
  *     requestBody:
  *       description: The API to create new parcel order.
  *       required: true

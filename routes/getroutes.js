@@ -7,6 +7,13 @@ const getRouter = Router();
 
 /**
  * @swagger
+ * tags:
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -58,9 +65,11 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
 
 /**
  * @swagger
- * /users:
+ * /parcels:
  *   get:
  *     summary: The end point to get all users parcels.
+ *     tags:
+ *        -Parcels
  *     responses:
  *       '200':
  *         description: Logged in.
@@ -85,6 +94,8 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  * /parcels/user:
  *   get:
  *     summary: The end point to get all a user's parcels.
+ *     tags:
+ *        -Parcels
  *     responses:
  *       '200':
  *         description: Returned user's parcels.

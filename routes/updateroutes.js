@@ -7,6 +7,13 @@ const updateRouter = Router();
 
 /**
  * @swagger
+ * tags:
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -51,6 +58,8 @@ const updateRouter = Router();
  * /parcels/{id}/destination:
  *   put:
  *     summary: The end point to hange the parcel order destination.
+ *     tags:
+ *        -Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path
@@ -104,6 +113,8 @@ updateRouter.put(
  * /parcels/{id}/status:
  *   put:
  *     summary: The end point to change the parcel order status.
+ *     tags:
+ *        -Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path
@@ -159,6 +170,8 @@ updateRouter.put(
  * /parcels/{id}/presentLocation:
  *   put:
  *     summary: The end point to update the parcel order present location.
+ *     tags:
+ *        -Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path
