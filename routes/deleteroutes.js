@@ -36,7 +36,7 @@ const deleteRouter = Router();
 /**
  * @swagger
  * /parcels/{id}/status:
- *   put:
+ *   delete:
  *     summary: The end point to delete parcel order.
  *     parameters:
  *       - name: parcelId
