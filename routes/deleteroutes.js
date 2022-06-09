@@ -7,6 +7,8 @@ const deleteRouter = Router();
 /**
  * @swagger
  * tags:
+ *   - name: Auth
+ *      description: Authenticating users
  *   - name: Parcels
  *      description: Access to parcels orders
  */
