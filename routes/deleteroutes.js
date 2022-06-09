@@ -5,6 +5,7 @@ import { deleteParcel, getParcels } from '../database/db';
 const deleteRouter = Router();
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:

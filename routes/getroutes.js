@@ -6,6 +6,7 @@ import {verifyAdminToken, verifyToken } from '../authentication/loginauth';
 const getRouter = Router();
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:

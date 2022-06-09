@@ -6,6 +6,7 @@ import { updateParcel, getUserParcels, getParcels } from '../database/db';
 const updateRouter = Router();
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:

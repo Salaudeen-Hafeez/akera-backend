@@ -14,10 +14,12 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
-/**
+ /**
+ * @swagger
  * components:
  *   schemas:
  *     loginData:
+ *       type: object
  *       properties:
  *         email:
  *           type: string
@@ -32,9 +34,11 @@ const { sign } = jwt;
  */
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     userData:
+ *       type: object
  *       properties:
  *         id:
  *           type: integer
@@ -56,10 +60,12 @@ const { sign } = jwt;
  *           example: active
  */
 
-/**
+  /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
+ *       type: object
  *       properties:
  *         username:
  *           type: string
@@ -104,13 +110,17 @@ const { sign } = jwt;
  *     requestBody:
  *       description: The API to login the user
  *       required: true
- *       schema:
- *         $ref: '#/components/schemas/loginData'
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/loginData'
  *     responses:
  *       '200':
  *         description: Logged in.
- *         schema:
- *           $ref: '#/components/schemas/userData' 
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userData' 
 */
 
 /* User login, first verify login credential using verifyLogin 
