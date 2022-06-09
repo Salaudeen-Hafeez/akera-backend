@@ -15,6 +15,20 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: The end point to get all users parcels.
+ *     responses:
+ *       200:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userData' 
+*/
+
 // GET all the users packages
 getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
   try {
@@ -24,6 +38,20 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
     res.status(400).json({ errMessage: error.message });
   }
 });
+
+/**
+ * @swagger
+ * /parcels/user:
+ *   get:
+ *     summary: The end point to get all a user's parcels.
+ *     responses:
+ *       200:
+ *         description: Returned user's parcels.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userData' 
+*/
 
 // GET all packages of a single user
 getRouter.get('/parcels/user', verifyToken,

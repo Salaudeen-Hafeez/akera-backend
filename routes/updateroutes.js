@@ -5,6 +5,38 @@ import { updateParcel, getUserParcels, getParcels } from '../database/db';
 
 const updateRouter = Router();
 
+/**
+ * @swagger
+ * /parcels/{id}/destination:
+ *   put:
+ *     summary: The end point to hange the parcel order destination.
+ *     parameters:
+ *       - name: parcelId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type : integer
+ *           format: int64
+ *           minimum: 1
+ *     requestBody:
+ *       description: The new destination to change on parcel order.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newDestination:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+*/
+
 // UPDATE the status of the user's parcel
 updateRouter.put(
   '/parcels/:id/destination',
@@ -26,6 +58,38 @@ updateRouter.put(
   }
 );
 
+/**
+ * @swagger
+ * /parcels/{id}/status:
+ *   put:
+ *     summary: The end point to change the parcel order status.
+ *     parameters:
+ *       - name: parcelId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type : integer
+ *           format: int64
+ *           minimum: 1
+ *     requestBody:
+ *       description: The new status of the parcel order.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newStatus:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+*/
+
 // UPDATE the status of the user's parcel
 updateRouter.put(
   '/parcels/:id/status',
@@ -46,6 +110,38 @@ updateRouter.put(
     }
   }
 );
+
+/**
+ * @swagger
+ * /parcels/{id}/presentLocation:
+ *   put:
+ *     summary: The end point to update the parcel order present location.
+ *     parameters:
+ *       - name: parcelId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type : integer
+ *           format: int64
+ *           minimum: 1
+ *     requestBody:
+ *       description: The new location of the parcel order.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newStatus:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+*/
 
 // UPDATE the status of the user's parcel
 updateRouter.put(

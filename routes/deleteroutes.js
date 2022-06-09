@@ -4,6 +4,28 @@ import { deleteParcel, getParcels } from '../database/db';
 
 const deleteRouter = Router();
 
+/**
+ * @swagger
+ * /parcels/{id}/status:
+ *   put:
+ *     summary: The end point to delete parcel order.
+ *     parameters:
+ *       - name: parcelId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type : integer
+ *           format: int64
+ *           minimum: 1
+ *     responses:
+ *       200:
+ *         description: Parcel deleted.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+ */
+
 deleteRouter.delete(
   '/parcels/:parcelid/delete', verifyToken,
   async (req, res) => {

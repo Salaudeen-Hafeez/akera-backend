@@ -14,30 +14,110 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
+ /**
+ * components:
+ *   schemas:
+ *     loginData:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           example: salaudeen123@gmail.com
+ *         password:
+ *           type: string
+ *           example: Salau132##4$
+ *       # Both properties are required
+ *        required:  
+ *         - id
+ *         - name
+ */
+
+  /**
+ * components:
+ *   schemas:
+ *     userData:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 4
+ *         name:
+ *           type: string
+ *           example: Salaudeen Hafeez
+ *         username:
+ *           type: string
+ *           example: Salaudeen123
+ *         email:
+ *           type: string
+ *           example: Salaudeen123@gmail.com
+ *         password:
+ *           type: string
+ *           example: hashed password
+ *         status:
+ *           type: string
+ *           example: active
+ */
+
+  /**
+ * components:
+ *   schemas:
+ *     parcelData:
+ *       type: object
+ *       properties:
+ *         username:
+ *           type: string
+ *           example: Salaudeen123
+ *         name:
+ *           type: string
+ *           example: A carton of frozen chicken
+ *         location:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         destination:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         sender:
+ *           type: string
+ *           example: 08133000306
+ *         reciever:
+ *           type: string
+ *           example: 08133000306
+ *         frajile:
+ *           type: string
+ *           example: Not frajile
+ *         status:
+ *           type: string
+ *           example: In transit
+ *         cost:
+ *           type: string
+ *           example: NGN5,000
+ *         tracking_id:
+ *           type: string
+ *           example: 2236gdfrsmmb63wqlwhoq
+ *         weight:
+ *           type: string
+ *           example: 34kg
+ */
+
 /**
  * @swagger
- * /users:
+ * /login:
  *   post:
- *     summary: Create a JSONPlaceholder user.
+ *     summary: Login as user or admin.
+ *     requestBody:
+ *       description: The API to login the user
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/loginData'
  *     responses:
  *       201:
- *         description: Created
+ *         description: Logged in.
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       description: The user ID.
- *                       example: 0
- *                     name:
- *                       type: string
- *                       description: The user's name.
- *                       example: Leanne Graham
+ *               $ref: '#/components/schemas/userData' 
 */
 
 /* User login, first verify login credential using verifyLogin 
@@ -78,6 +158,27 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
     res.status(400).json({ errMessage: error.message });
   }
 });
+
+/**
+ * @swagger
+ * /signup:
+ *   post:
+ *     summary: Create user or admin.
+ *     requestBody:
+ *       description: The API to login the user
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/userData'
+ *     responses:
+ *       201:
+ *         description: Created.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userData' 
+*/
 
 /* Validate the new incoming user data. Then check if 
 the user already exist. If the user does not exist add 
@@ -131,6 +232,27 @@ postRouter.post('/signup', async (req, res) => {
     }
   }
 });
+
+/**
+ * @swagger
+ * /parcels:
+ *   post:
+ *     summary: Create new parcels order.
+ *     requestBody:
+ *       description: The API to create new parcel order.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/parcelData'
+ *     responses:
+ *       201:
+ *         description: Logged in.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/parcelData' 
+*/
 
 /* Verify the user token using verifyToken middle ware. if 
 token is correct, check if the frijile property is empty. 
