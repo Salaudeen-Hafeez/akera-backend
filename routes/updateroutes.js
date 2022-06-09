@@ -59,7 +59,7 @@ const updateRouter = Router();
  *   put:
  *     summary: The end point to hange the parcel order destination.
  *     tags:
- *        -Parcels
+ *        - Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path
@@ -114,7 +114,7 @@ updateRouter.put(
  *   put:
  *     summary: The end point to change the parcel order status.
  *     tags:
- *        -Parcels
+ *        - Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path
@@ -171,7 +171,7 @@ updateRouter.put(
  *   put:
  *     summary: The end point to update the parcel order present location.
  *     tags:
- *        -Parcels
+ *        - Parcels
  *     parameters:
  *       - name: parcelId
  *         in: path

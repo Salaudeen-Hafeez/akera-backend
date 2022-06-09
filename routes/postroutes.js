@@ -113,7 +113,7 @@ const { sign } = jwt;
  *   post:
  *     summary: Login as user or admin.
  *     tags:
- *        -Auth
+ *        - Auth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -175,7 +175,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
  *   post:
  *     summary: Create user or admin.
  *     tags:
- *        -Auth
+ *        - Auth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -251,7 +251,7 @@ postRouter.post('/signup', async (req, res) => {
  *   post:
  *     summary: Create new parcels order.
  *     tags:
- *        -Parcels
+ *        - Parcels
  *     requestBody:
  *       description: The API to create new parcel order.
  *       required: true
