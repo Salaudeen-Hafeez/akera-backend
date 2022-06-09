@@ -107,17 +107,13 @@ const { sign } = jwt;
  *     requestBody:
  *       description: The API to login the user
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/loginData'
+ *       schema:
+ *         $ref: '#/components/schemas/loginData'
  *     responses:
- *       201:
+ *       '200':
  *         description: Logged in.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/userData' 
+ *         schema:
+ *           $ref: '#/components/schemas/userData' 
 */
 
 /* User login, first verify login credential using verifyLogin 
