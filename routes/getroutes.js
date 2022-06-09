@@ -5,6 +5,47 @@ import {verifyAdminToken, verifyToken } from '../authentication/loginauth';
 
 const getRouter = Router();
 
+/**
+ * components:
+ *   schemas:
+ *     parcelData:
+ *       type: object
+ *       properties:
+ *         username:
+ *           type: string
+ *           example: Salaudeen123
+ *         name:
+ *           type: string
+ *           example: A carton of frozen chicken
+ *         location:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         destination:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         sender:
+ *           type: string
+ *           example: 08133000306
+ *         reciever:
+ *           type: string
+ *           example: 08133000306
+ *         frajile:
+ *           type: string
+ *           example: Not frajile
+ *         status:
+ *           type: string
+ *           example: In transit
+ *         cost:
+ *           type: string
+ *           example: NGN5,000
+ *         tracking_id:
+ *           type: string
+ *           example: 2236gdfrsmmb63wqlwhoq
+ *         weight:
+ *           type: string
+ *           example: 34kg
+ */
+
 // GET all the users packages
 getRouter.get('/users', verifyAdminToken, async (req, res) => {
   try {
@@ -26,7 +67,7 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/userData' 
+ *               $ref: '#/components/schemas/parcelData' 
 */
 
 // GET all the users packages
@@ -50,7 +91,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/userData' 
+ *               $ref: '#/components/schemas/parcelData' 
 */
 
 // GET all packages of a single user
