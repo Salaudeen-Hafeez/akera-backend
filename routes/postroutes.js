@@ -27,10 +27,6 @@ const { sign } = jwt;
  *         password:
  *           type: string
  *           example: Salau132##4$
- *       # Both properties are required
- *        required:  
- *         - id
- *         - name
  */
 
 /**
