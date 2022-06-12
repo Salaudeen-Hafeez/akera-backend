@@ -156,8 +156,12 @@ updateRouter.put(
     const key = Object.keys(req.body);
     try {
       let updatedParcel
-      updatedParcel = await updateParcel(key[0], value[0], con);
-      updatedParcel = await updateParcel(key[1], value[1], con);
+      if (key.length === 1){
+        updatedParcel = await updateParcel(key[0], value[0], con);
+      }else if (key.length === 2){
+        updatedParcel = await updateParcel(key[0], value[0], con);
+        updatedParcel = await updateParcel(key[1], value[1], con);
+      }
       const packages = await getParcels()
       res.json({ package: updatedParcel.rows[0], packages: packages.rows });
     } catch (error) {
