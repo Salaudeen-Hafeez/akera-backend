@@ -15,6 +15,14 @@ const getRouter = Router();
  */
 
 /**
+ * components:
+ *    securitySchemes:
+ *      bearerAuth:            # arbitrary name for the security scheme
+ *        type: http
+ *        scheme: bearer
+ *        bearerFormat: JWT 
+ */
+/**
  * @swagger
  * components:
  *   schemas:

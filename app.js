@@ -21,15 +21,6 @@ const options = {
         url: "https://akera-backend.herokuapp.com/api/v1",
       },
     ],
-    components:{
-      securitySchemes:{
-        bearerAuth:{
-          type: http,
-          scheme: bearer,
-          bearerFormat: JWT
-        }
-      }
-    } 
   },
   apis: ["./routes/*.js"],
 };
