@@ -14,14 +14,14 @@ const getRouter = Router();
  *      description: Authenticating users
  */
 
-/**
- * components:
- *    securitySchemes:
- *      bearerAuth:            # arbitrary name for the security scheme
- *        type: http
- *        scheme: bearer
- *        bearerFormat: JWT 
- */
+// /**
+//  * components:
+//  *    securitySchemes:
+//  *      bearerAuth:            # arbitrary name for the security scheme
+//  *        type: http
+//  *        scheme: bearer
+//  *        bearerFormat: JWT 
+//  */
 /**
  * @swagger
  * components:
