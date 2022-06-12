@@ -70,11 +70,13 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
  * /parcels:
  *   get:
  *     summary: The end point to get all users parcels.
+ *     security:
+ *       - bearerAuth: []
  *     tags:
  *        - Parcels
  *     responses:
  *       '200':
- *         description: Logged in.
+ *         description: All parcels fetched successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -100,7 +102,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  *        - Parcels
  *     responses:
  *       '200':
- *         description: Returned user's parcels.
+ *         description: User parcels fetched successfully.
  *         content:
  *           application/json:
  *             schema:

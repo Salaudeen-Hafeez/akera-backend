@@ -123,7 +123,7 @@ const { sign } = jwt;
  *             $ref: '#/components/schemas/loginData'
  *     responses:
  *       '200':
- *         description: Logged in.
+ *         description: Logged in successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -185,7 +185,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
  *             $ref: '#/components/schemas/userData'
  *     responses:
  *       '201':
- *         description: Created.
+ *         description: User created successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -261,7 +261,7 @@ postRouter.post('/signup', async (req, res) => {
  *             $ref: '#/components/schemas/parcelData'
  *     responses:
  *       201:
- *         description: Logged in.
+ *         description: Order successfully.
  *         content:
  *           application/json:
  *             schema:

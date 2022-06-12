@@ -78,11 +78,11 @@ const updateRouter = Router();
  *           schema:
  *             type: object
  *             properties:
- *               newDestination:
+ *               New destination:
  *                 type: string
  *     responses:
  *       '200':
- *         description: Logged in.
+ *         description: Destination updated successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -133,11 +133,11 @@ updateRouter.put(
  *           schema:
  *             type: object
  *             properties:
- *               newStatus:
+ *               New status:
  *                 type: string
  *     responses:
  *       '200':
- *         description: Logged in.
+ *         description: Status updated successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -190,11 +190,11 @@ updateRouter.put(
  *           schema:
  *             type: object
  *             properties:
- *               newStatus:
+ *               Present location:
  *                 type: string
  *     responses:
  *       '200':
- *         description: Logged in.
+ *         description: The location updated successfully.
  *         content:
  *           application/json:
  *             schema:

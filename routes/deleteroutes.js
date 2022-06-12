@@ -10,7 +10,7 @@ const deleteRouter = Router();
  *   - name: Parcels
  *      description: Access to parcels orders
  *   - name: Auth
- *      description: Authenticating users
+ *      description: Users Authenticating
  */
 
 /**
