@@ -4,6 +4,16 @@ import { adminExist, userExist } from '../database/db';
 
 const { verify } = jwt;
 
+function getToken(req) {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.split(" ")[0] === "Bearer"
+  ) {
+    return req.headers.authorization.split(" ")[1];
+  } 
+  return null;
+}
+
 /* Login authentication. First validate the user login credentials
 using loginValidation function. Then check if the user exist. if 
 all the check pass run the next() function */
@@ -34,13 +44,12 @@ const verifyLogin = async (req, res, next) => {
 };
 
 const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  res.json(token)
-  const {role} = jwt.decode(token);
-  if (!token) {
+  const token = getToken(req);
+  if (token === null) {
     throw new Error('Access denied');
   } else {
     try {
+      const {role} = jwt.decode(token);
       if (role === 'admin') {
         verify(token, 'jakeradming');
         next();
