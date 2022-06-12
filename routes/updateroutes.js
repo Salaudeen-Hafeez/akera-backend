@@ -80,7 +80,7 @@ const updateRouter = Router();
  *           schema:
  *             type: object
  *             properties:
- *               destination:
+ *               _destination:
  *                 type: string
  *     responses:
  *       '200':
@@ -135,7 +135,7 @@ updateRouter.put(
  *           schema:
  *             type: object
  *             properties:
- *               status:
+ *               _status:
  *                 type: string
  *     responses:
  *       '200':
@@ -191,7 +191,7 @@ updateRouter.put(
  *           schema:
  *             type: object
  *             properties:
- *               location:
+ *               _location:
  *                 type: string
  *     responses:
  *       '200':
