@@ -65,7 +65,7 @@ const updateRouter = Router();
  *     tags:
  *        - Parcels
  *     parameters:
- *       - name: parcelId
+ *       - name: id
  *         in: path
  *         required: true
  *         schema:
@@ -120,7 +120,7 @@ updateRouter.put(
  *     tags:
  *        - Parcels
  *     parameters:
- *       - name: parcelId
+ *       - name: id
  *         in: path
  *         required: true
  *         schema:
@@ -176,7 +176,7 @@ updateRouter.put(
  *     tags:
  *        - Parcels
  *     parameters:
- *       - name: parcelId
+ *       - name: id
  *         in: path
  *         required: true
  *         schema:
