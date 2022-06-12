@@ -14,14 +14,6 @@ const getRouter = Router();
  *      description: Authenticating users
  */
 
-// /**
-//  * components:
-//  *    securitySchemes:
-//  *      bearerAuth:            # arbitrary name for the security scheme
-//  *        type: http
-//  *        scheme: bearer
-//  *        bearerFormat: JWT 
-//  */
 /**
  * @swagger
  * components:
@@ -106,6 +98,8 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  * /parcels/user:
  *   get:
  *     summary: The end point to get all a user's parcels.
+ *     security:
+ *       - bearerAuth: []
  *     tags:
  *        - Parcels
  *     responses:

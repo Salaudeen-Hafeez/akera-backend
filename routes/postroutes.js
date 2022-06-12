@@ -250,6 +250,8 @@ postRouter.post('/signup', async (req, res) => {
  * /parcels:
  *   post:
  *     summary: Create new parcels order.
+ *     security:
+ *       - bearerAuth: []
  *     tags:
  *        - Parcels
  *     requestBody:

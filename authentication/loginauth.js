@@ -66,15 +66,18 @@ const verifyToken = (req, res, next) => {
 };
 
 const verifyAdminToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  res.json(token)
-  const {role} = jwt.decode(token);
-  if (role !== 'admin') {
+  const token = getToken(req);
+  if (token === null) {
     throw new Error('Access denied');
   } else {
     try {
-      verify(token, 'jakeradming');
-      next();
+      const {role} = jwt.decode(token);
+      if (role !== 'admin') {
+        throw new Error('unauthorised user');
+      }else{
+        verify(token, 'jakeradming');
+        next();
+      }
     } catch (error) {
       res.status(400).json({ errMessage: 'Invalid token' });
     }
