@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken'
 import { getParcels, getUserParcels, getUsers, parcelExist } from '../database/db';
-import {verifyAdminToken, verifyToken } from '../authentication/loginauth';
+import {getToken, verifyToken, verifyAdminToken } from '../authentication/loginauth';
 
 const getRouter = Router();
 
@@ -115,7 +115,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
 getRouter.get('/parcels/user', verifyToken,
   async (req, res) => {
     try {
-      const {username}= jwt.decode(req.headers.authorization)
+      const {username}= jwt.decode(getToken(req))
       const check = await parcelExist(username)
       if (!check.rows[0].exists) {
         throw new Error('You do not have any package yet');

@@ -4,7 +4,10 @@ import jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid'
 
 import * as model from '../database/db';
-import { verifyLogin } from '../authentication/loginauth';
+import { getToken, 
+  verifyLogin, 
+  verifyToken 
+} from '../authentication/loginauth';
 import {
   userValidation,
   parcelValidation,
@@ -275,8 +278,9 @@ token is correct, check if the frijile property is empty.
 if everything is fine add the package to the database  */
 postRouter.post(
   '/parcels',
+  verifyToken,
   async (req, res) => {
-    const { username } = req.params;
+    const {username}= jwt.decode(getToken(req))
     const reqBody = req.body;
     if (reqBody.frajile === '') {
       reqBody['frajile'] = 'package not frajile';

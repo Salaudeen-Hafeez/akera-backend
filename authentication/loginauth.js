@@ -84,4 +84,4 @@ const verifyAdminToken = (req, res, next) => {
   }
 };
 
-export {verifyLogin, verifyToken, verifyAdminToken}
+export {getToken, verifyLogin, verifyToken, verifyAdminToken}
