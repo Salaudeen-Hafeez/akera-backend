@@ -39,6 +39,8 @@ const deleteRouter = Router();
  * /parcels/{id}/status:
  *   delete:
  *     summary: The end point to delete parcel order.
+ *     tags:
+ *        - Parcels
  *     security:
  *       - bearerAuth: []
  *     parameters:

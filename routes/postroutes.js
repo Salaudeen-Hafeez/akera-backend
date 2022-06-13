@@ -20,10 +20,10 @@ const { sign } = jwt;
 
 /**
  * tags:
- *   - name: Parcels
- *      description: Access to parcels orders
  *   - name: Auth
  *      description: Authenticating users
+ *   - name: Parcels
+ *      description: Access to parcels orders
  */
 
 /**
@@ -253,6 +253,8 @@ postRouter.post('/auth/signup', async (req, res) => {
  * /parcels:
  *   post:
  *     summary: Create new parcels order.
+ *     tags:
+ *        - Parcels
  *     security:
  *       - bearerAuth: []
  *     requestBody:
