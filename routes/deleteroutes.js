@@ -73,6 +73,7 @@ deleteRouter.delete(
   '/parcels/:parcelid/delete', verifyAdminToken,
   async (req, res) => {
     const parcelid = parseInt(req.params.parcelid);
+    res.json({id: req.params.parcelid})
     try {
       const deletedParcel = await deleteParcel(parcelid);
       if (deletedParcel.rowCount !== 0) {
