@@ -138,7 +138,7 @@ const deleteUser = (userData) => {
 
 const deleteParcel = (parcelId) => {
   const deletedPackage = client.query(
-    `DELETE FROM packages WHERE parcel_id = $1 RETURNING *`,
+    `DELETE FROM parcels WHERE parcel_id = $1 RETURNING *`,
     [parcelId]
   );
   return deletedPackage;
