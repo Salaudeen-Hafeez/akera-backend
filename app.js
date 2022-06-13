@@ -31,7 +31,7 @@ const options = {
       }
     } 
   },
-  apis: ["./*.js"],
+  apis: ["./routes/*.js"],
 };
 
 const app = express();
