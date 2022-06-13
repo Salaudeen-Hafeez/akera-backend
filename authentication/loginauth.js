@@ -43,21 +43,18 @@ const verifyLogin = async (req, res, next) => {
   }
 };
 
-const verifyToken = (req, res, next) => {
+const verifyUserToken = (req, res, next) => {
   const token = getToken(req);
   if (token === null) {
     throw new Error('Access denied');
   } else {
     try {
       const {role} = jwt.decode(token);
-      if (role === 'admin') {
-        verify(token, 'jakeradming');
-        next();
-      } else if (role === 'user') {
+      if (role !== 'user') {
+        throw new Error('unauthorised user');
+      }else{
         verify(token, 'jakerag');
         next();
-      } else {
-        throw new Error('unauthorised user');
       }
     } catch (error) {
       res.status(400).json({ errMessage: 'Invalid token' });
@@ -84,4 +81,32 @@ const verifyAdminToken = (req, res, next) => {
   }
 };
 
-export {getToken, verifyLogin, verifyToken, verifyAdminToken}
+const verifyToken = (req, res, next) => {
+  const token = getToken(req);
+  if (token === null) {
+    throw new Error('Access denied');
+  } else {
+    try {
+      const {role} = jwt.decode(token);
+      if (role === 'admin') {
+        verify(token, 'jakeradming');
+        next();
+      } else if (role === 'user') {
+        verify(token, 'jakerag');
+        next();
+      } else {
+        throw new Error('unauthorised user');
+      }
+    } catch (error) {
+      res.status(400).json({ errMessage: 'Invalid token' });
+    }
+  }
+};
+
+export {
+  getToken, 
+  verifyLogin, 
+  verifyUserToken, 
+  verifyAdminToken, 
+  verifyToken
+}

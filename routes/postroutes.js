@@ -4,9 +4,10 @@ import jwt from 'jsonwebtoken';
 import {v4 as uuidv4} from 'uuid'
 
 import * as model from '../database/db';
-import { getToken, 
+import { 
+  getToken, 
   verifyLogin, 
-  verifyToken 
+  verifyUserToken
 } from '../authentication/loginauth';
 import {
   userValidation,
@@ -278,7 +279,7 @@ token is correct, check if the frijile property is empty.
 if everything is fine add the package to the database  */
 postRouter.post(
   '/parcels',
-  verifyToken,
+  verifyUserToken,
   async (req, res) => {
     const {username}= jwt.decode(getToken(req))
     const reqBody = req.body;

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { verifyToken } from '../authentication/loginauth';
+import { verifyAdminToken } from '../authentication/loginauth';
 import { deleteParcel, getParcels } from '../database/db';
 
 const deleteRouter = Router();
@@ -70,7 +70,7 @@ const deleteRouter = Router();
  */
 
 deleteRouter.delete(
-  '/parcels/:parcelid/delete', verifyToken,
+  '/parcels/:parcelid/delete', verifyAdminToken,
   async (req, res) => {
     const parcelid = parseInt(req.params.parcelid);
     try {

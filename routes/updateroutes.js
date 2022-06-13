@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import { getToken, verifyAdminToken, verifyToken } from '../authentication/loginauth';
+import { getToken, verifyUserToken, verifyAdminToken } from '../authentication/loginauth';
 import { updateParcel, getUserParcels, getParcels } from '../database/db';
 
 const updateRouter = Router();
@@ -94,7 +94,7 @@ const updateRouter = Router();
 // UPDATE the status of the user's parcel
 updateRouter.put(
   '/parcels/:id/destination',
-  verifyToken,
+  verifyUserToken,
   async (req, res) => {
     const {username}= jwt.decode(getToken(req))
     const con = parseInt(req.params.id);
