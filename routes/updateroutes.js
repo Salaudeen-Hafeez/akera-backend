@@ -53,8 +53,6 @@ const updateRouter = Router();
  *     summary: The end point to hange the parcel order destination.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     parameters:
  *       - name: id
  *         in: path
@@ -108,8 +106,6 @@ updateRouter.put(
  *     summary: The end point to change the parcel order status.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     parameters:
  *       - name: id
  *         in: path
@@ -168,8 +164,6 @@ updateRouter.put(
  *     summary: The end point to update the parcel order present location.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     parameters:
  *       - name: id
  *         in: path

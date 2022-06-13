@@ -63,8 +63,6 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
  *     summary: The end point to get all users parcels.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     responses:
  *       '200':
  *         description: All parcels fetched successfully.
@@ -91,8 +89,6 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  *     summary: The end point to get all a user's parcels.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     responses:
  *       '200':
  *         description: User parcels fetched successfully.

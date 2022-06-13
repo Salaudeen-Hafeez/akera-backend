@@ -256,8 +256,6 @@ postRouter.post('/auth/signup', async (req, res) => {
  *     summary: Create new parcels order.
  *     security:
  *       - bearerAuth: []
- *     tags:
- *        - Parcels
  *     requestBody:
  *       description: The API to create new parcel order.
  *       required: true
