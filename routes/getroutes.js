@@ -5,14 +5,14 @@ import {getToken, verifyToken, verifyAdminToken } from '../authentication/logina
 
 const getRouter = Router();
 
-/**
- * @swagger
- * tags:
- *   - name: Parcels
- *      description: Access to parcels orders
- *   - name: Auth
- *      description: Authenticating users
- */
+// /**
+//  * @swagger
+//  * tags:
+//  *   - name: Parcels
+//  *      description: Access to parcels orders
+//  *   - name: Auth
+//  *      description: Authenticating users
+//  */
 
 /**
  * @swagger

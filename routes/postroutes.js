@@ -18,14 +18,14 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
-/**
- * @swagger
- * tags:
- *   - name: Parcels
- *      description: Access to parcels orders
- *   - name: Auth
- *      description: Authenticating users
- */
+// /**
+//  * @swagger
+//  * tags:
+//  *   - name: Parcels
+//  *      description: Access to parcels orders
+//  *   - name: Auth
+//  *      description: Authenticating users
+//  */
 
 /**
  * @swagger
@@ -113,7 +113,7 @@ const { sign } = jwt;
 
 /**
  * @swagger
- * /login:
+ * /auth/login:
  *   post:
  *     summary: Login as user or admin.
  *     tags:
@@ -138,7 +138,7 @@ const { sign } = jwt;
 middle ware. Then get the user data using the getUser function.
 Then compare the user passwords. If all the credentials pass the 
 check, generate token for the user */
-postRouter.post('/login', verifyLogin, async (req, res) => {
+postRouter.post('/auth/login', verifyLogin, async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!email.includes('@sendit.com')) {
@@ -175,7 +175,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
 
 /**
  * @swagger
- * /signup:
+ * /auth/signup:
  *   post:
  *     summary: Create user or admin.
  *     tags:
@@ -199,7 +199,7 @@ postRouter.post('/login', verifyLogin, async (req, res) => {
 /* Validate the new incoming user data. Then check if 
 the user already exist. If the user does not exist add 
 the user to the database */
-postRouter.post('/signup', async (req, res) => {
+postRouter.post('/auth/signup', async (req, res) => {
   delete req.body.password2;
   const { error } = userValidation(req.body);
   if (error) {

@@ -5,14 +5,14 @@ import { updateParcel, getUserParcels, getParcels } from '../database/db';
 
 const updateRouter = Router();
 
-/**
- * @swagger
- * tags:
- *   - name: Parcels
- *      description: Access to parcels orders
- *   - name: Auth
- *      description: Authenticating users
- */
+// /**
+//  * @swagger
+//  * tags:
+//  *   - name: Parcels
+//  *      description: Access to parcels orders
+//  *   - name: Auth
+//  *      description: Authenticating users
+//  */
 
 /**
  * @swagger
