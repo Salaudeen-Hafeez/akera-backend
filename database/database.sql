@@ -18,15 +18,17 @@ CREATE TABLE admins(
 
 CREATE TABLE parcels(
     parcel_id SERIAL PRIMARY KEY,
-    _username VARCHAR(60) NOT NULL,
-    _name VARCHAR(60) NOT NULL,
-    _location VARCHAR(255) NOT NULL,
-    _destination VARCHAR(255) NOT NULL,
-    _sender VARCHAR(60) NOT NULL,
-    _reciever VARCHAR(60) NOT NULL,
-    _frajile VARCHAR(60) NOT NULL,
-    _status VARCHAR(60) NOT NULL,
-    _cost VARCHAR(60) NOT NULL,
-    tracking_id VARCHAR(255) NOT NULL,
-    _weight VARCHAR(60)
+    createdBy VARCHAR(60) NOT NULL,
+    parcelName VARCHAR(60) NOT NULL,
+    pickupLocation VARCHAR(255) NOT NULL,
+    destination VARCHAR(255) NOT NULL,
+    senderNumber VARCHAR(60) NOT NULL,
+    recieverNumber VARCHAR(60) NOT NULL,
+    isFrajile VARCHAR(60) NOT NULL,
+    orderStatus VARCHAR(60) NOT NULL,
+    totalCost VARCHAR(60) NOT NULL,
+    trackingId VARCHAR(255) NOT NULL,
+    OrderDate DATE DEFAULT GETDATE(),
+    updatedAt DATE,
+    parcelWeight VARCHAR(60)
 );
