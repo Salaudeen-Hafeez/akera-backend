@@ -4,15 +4,6 @@ import { deleteParcel, getParcels } from '../database/db';
 
 const deleteRouter = Router();
 
-// /**
-//  * @swagger
-//  * tags:
-//  *   - name: Parcels
-//  *      description: Access to parcels orders
-//  *   - name: Auth
-//  *      description: Users Authenticating
-//  */
-
 /**
  * @swagger
  * components:

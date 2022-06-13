@@ -18,14 +18,14 @@ const postRouter = Router();
 const { compare } = bcrypt;
 const { sign } = jwt;
 
-// /**
-//  * @swagger
-//  * tags:
-//  *   - name: Parcels
-//  *      description: Access to parcels orders
-//  *   - name: Auth
-//  *      description: Authenticating users
-//  */
+/**
+ * @swagger
+ * tags:
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ *   - name: Auth
+ *      description: Authenticating users
+ */
 
 /**
  * @swagger
