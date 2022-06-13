@@ -20,7 +20,7 @@ const { sign } = jwt;
 
 /**
  * @swagger
- * @tags:
+ * tags:
  *   - name: Auth
  *      description: Authenticating users
  *   - name: Parcels
