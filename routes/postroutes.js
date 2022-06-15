@@ -20,6 +20,20 @@ const { sign } = jwt;
 
 /**
  * @swagger
+ * tags:
+ *   - name: Auth
+ *      description: Authenticating users
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     loginData:
@@ -246,7 +260,7 @@ postRouter.post('/auth/signup', async (req, res) => {
  *   post:
  *     summary: Create new parcels order.
  *     tags:
- *        - Auth
+ *        - Parcels
  *     security:
  *       - bearerAuth: []
  *     requestBody:

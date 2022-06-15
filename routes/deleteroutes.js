@@ -6,6 +6,13 @@ const deleteRouter = Router();
 
 /**
  * @swagger
+ * tags:
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -40,7 +47,7 @@ const deleteRouter = Router();
  *   delete:
  *     summary: The end point to delete parcel order.
  *     tags:
- *        - Auth
+ *        - Parcels
  *     security:
  *       - bearerAuth: []
  *     parameters:
