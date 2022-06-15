@@ -5,12 +5,14 @@ import { deleteParcel, getParcels } from '../database/db';
 const deleteRouter = Router();
 
 /**
+ * @swagger
  * tags:
  *   - name: Parcels
  *      description: Access to parcels orders
  */
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -40,6 +42,7 @@ const deleteRouter = Router();
  */
 
 /**
+ * @swagger
  * /parcels/{id}/status:
  *   delete:
  *     tags:

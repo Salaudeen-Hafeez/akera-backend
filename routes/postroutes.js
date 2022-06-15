@@ -19,18 +19,21 @@ const { compare } = bcrypt;
 const { sign } = jwt;
 
 /**
+ * @swagger
  * tags:
  *   - name: Auth
  *      description: Authenticating users
  */
 
 /**
+ * @swagger
  * tags:
  *   - name: Parcels
  *      description: Access to parcels orders
  */
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     loginData:
@@ -45,6 +48,7 @@ const { sign } = jwt;
  */
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     userData:
@@ -71,6 +75,7 @@ const { sign } = jwt;
  */
 
 /**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -112,11 +117,12 @@ const { sign } = jwt;
  */
 
 /**
+ * @swagger
  * /auth/login:
  *   post:
- *     summary: Login as user or admin.
  *     tags:
  *        - Auth
+ *     summary: Login as user or admin.
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -173,6 +179,7 @@ postRouter.post('/auth/login', verifyLogin, async (req, res) => {
 });
 
 /**
+ * @swagger
  * /auth/signup:
  *   post:
  *     summary: Create user or admin.
@@ -248,6 +255,7 @@ postRouter.post('/auth/signup', async (req, res) => {
 });
 
 /**
+ * @swagger
  * /parcels:
  *   post:
  *     summary: Create new parcels order.
