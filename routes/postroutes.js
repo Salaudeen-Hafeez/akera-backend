@@ -19,14 +19,6 @@ const { compare } = bcrypt;
 const { sign } = jwt;
 
 /**
- * tags:
- *   - name: Auth
- *      description: Authenticating users
- *   - name: Parcels
- *      description: Access to parcels orders
- */
-
-/**
  * @swagger
  * components:
  *   schemas:
