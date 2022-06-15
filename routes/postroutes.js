@@ -108,7 +108,7 @@ const { sign } = jwt;
  *   post:
  *     summary: Login as user or admin.
  *     tags:
- *        - Auth
+ *        - SAuth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
@@ -170,7 +170,7 @@ postRouter.post('/auth/login', verifyLogin, async (req, res) => {
  *   post:
  *     summary: Create user or admin.
  *     tags:
- *        - Auth
+ *        - SAuth
  *     requestBody:
  *       description: The API to login the user
  *       required: true
