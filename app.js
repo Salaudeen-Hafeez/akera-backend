@@ -9,7 +9,7 @@ import deleteRouter from './routes/deleteroutes';
 
 const options = {
   definition: {
-    openapi: "3.0.0",
+    openapi: "3.0.2",
     info: {
       title: "Akera logistics API Documentation",
       version: "0.1.0",
