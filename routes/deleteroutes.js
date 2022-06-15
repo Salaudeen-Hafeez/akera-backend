@@ -40,7 +40,7 @@ const deleteRouter = Router();
  *   delete:
  *     summary: The end point to delete parcel order.
  *     tags:
- *        - Parcels
+ *        - Auth
  *     security:
  *       - bearerAuth: []
  *     parameters:

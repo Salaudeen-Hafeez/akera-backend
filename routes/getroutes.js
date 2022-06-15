@@ -62,7 +62,7 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
  *   get:
  *     summary: The end point to get all users parcels.
  *     tags:
- *        - Parcels
+ *        - Auth
  *     security:
  *       - bearerAuth: []
  *     tags:
@@ -92,7 +92,7 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
  *   get:
  *     summary: The end point to get all a user's parcels.
  *     tags:
- *        - Parcels
+ *        - Auth
  *     security:
  *       - bearerAuth: []
  *     responses:
