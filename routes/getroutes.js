@@ -6,7 +6,6 @@ import {getToken, verifyToken, verifyAdminToken } from '../authentication/logina
 const getRouter = Router();
 
 /**
- * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -57,12 +56,11 @@ getRouter.get('/users', verifyAdminToken, async (req, res) => {
 });
 
 /**
- * @swagger
  * /parcels:
  *   get:
- *     summary: The end point to get all users parcels.
  *     tags:
  *        - Auth
+ *     summary: The end point to get all users parcels.
  *     security:
  *       - bearerAuth: []
  *     tags:
@@ -87,12 +85,11 @@ getRouter.get('/parcels', verifyAdminToken, async (req, res) => {
 });
 
 /**
- * @swagger
  * /parcels/user:
  *   get:
- *     summary: The end point to get all a user's parcels.
  *     tags:
  *        - Auth
+ *     summary: The end point to get all a user's parcels.
  *     security:
  *       - bearerAuth: []
  *     responses:

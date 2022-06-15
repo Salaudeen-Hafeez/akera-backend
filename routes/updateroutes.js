@@ -6,14 +6,12 @@ import { updateParcel, getUserParcels, getParcels } from '../database/db';
 const updateRouter = Router();
 
 /**
- * @swagger
  * tags:
  *   - name: Parcels
  *      description: Access to parcels orders
  */
 
 /**
- * @swagger
  * components:
  *   schemas:
  *     parcelData:
@@ -54,12 +52,11 @@ const updateRouter = Router();
  */
 
 /**
- * @swagger
  * /parcels/{id}/destination:
  *   put:
- *     summary: The end point to hange the parcel order destination.
  *     tags:
  *        - Parcels
+ *     summary: The end point to hange the parcel order destination.
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -109,12 +106,11 @@ updateRouter.put(
 );
 
 /**
- * @swagger
  * /parcels/{id}/status:
  *   put:
- *     summary: The end point to change the parcel order status.
  *     tags:
  *        - Parcels
+ *     summary: The end point to change the parcel order status.
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -169,12 +165,11 @@ updateRouter.put(
 );
 
 /**
- * @swagger
  * /parcels/{id}/presentLocation:
  *   put:
- *     summary: The end point to update the parcel order present location.
  *     tags:
  *        - Parcels
+ *     summary: The end point to update the parcel order present location.
  *     security:
  *       - bearerAuth: []
  *     parameters:
