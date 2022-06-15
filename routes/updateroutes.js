@@ -58,7 +58,7 @@ const updateRouter = Router();
  * /parcels/{id}/destination:
  *   put:
  *     tags:
- *        - Auth
+ *        - Parcels
  *     summary: The end point to hange the parcel order destination.
  *     security:
  *       - bearerAuth: []
@@ -109,6 +109,7 @@ updateRouter.put(
 );
 
 /**
+ * @swagger
  * /parcels/{id}/status:
  *   put:
  *     tags:
@@ -168,6 +169,7 @@ updateRouter.put(
 );
 
 /**
+ * @swagger
  * /parcels/{id}/presentLocation:
  *   put:
  *     tags:
