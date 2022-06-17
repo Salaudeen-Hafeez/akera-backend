@@ -18,7 +18,7 @@ const updateRouter = Router();
  * @swagger
  * components:
  *   schemas:
- *     updatDestinationRequest:
+ *     updateDestinationRequest:
  *       type: object
  *       properties:
  *         _destination:
@@ -30,7 +30,7 @@ const updateRouter = Router();
  * @swagger
  * components:
  *   schemas:
- *     updatStatusRequest:
+ *     updateStatusRequest:
  *       type: object
  *       properties:
  *         _status:
@@ -42,7 +42,7 @@ const updateRouter = Router();
  * @swagger
  * components:
  *   schemas:
- *     updatLocationRequest:
+ *     updateLocationRequest:
  *       type: object
  *       properties:
  *         _location:
@@ -73,7 +73,7 @@ const updateRouter = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/updatDestinationRequest'
+ *             $ref: '#/components/schemas/updateDestinationRequest'
  *     responses:
  *       '200':
  *         description: Destination updated successfully.
@@ -121,7 +121,7 @@ updateRouter.put(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/updatStatusRequest'
+ *             $ref: '#/components/schemas/updateStatusRequest'
  *     responses:
  *       '200':
  *         description: Status updated successfully.
@@ -174,7 +174,7 @@ updateRouter.put(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/updatLocationRequest'
+ *             $ref: '#/components/schemas/updateLocationRequest'
  *     responses:
  *       '200':
  *         description: The location updated successfully.
