@@ -36,7 +36,7 @@ const { sign } = jwt;
  * @swagger
  * components:
  *   schemas:
- *     loginData:
+ *     loginRequest:
  *       type: object
  *       properties:
  *         email:
@@ -51,7 +51,31 @@ const { sign } = jwt;
  * @swagger
  * components:
  *   schemas:
- *     userData:
+ *     signupRequest:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: Salaudeen Hafeez
+ *         username:
+ *           type: string
+ *           example: Salaudeen123
+ *         email:
+ *           type: string
+ *           example: Salaudeen123@gmail.com
+ *         password:
+ *           type: string
+ *           example: Salau123$%@
+ *         password2:
+ *           type: string
+ *           example: Salau123$%@
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     returnUserData:
  *       type: object
  *       properties:
  *         id:
@@ -129,14 +153,14 @@ const { sign } = jwt;
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/loginData'
+ *             $ref: '#/components/schemas/loginRequest'
  *     responses:
  *       '200':
  *         description: Logged in successfully.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/userData' 
+ *               $ref: '#/components/schemas/returnUserData' 
  */
 
 /* User login, first verify login credential using verifyLogin 
@@ -191,7 +215,7 @@ postRouter.post('/auth/login', verifyLogin, async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/userData'
+ *             $ref: '#/components/schemas/signupRequest'
  *     responses:
  *       '201':
  *         description: User created successfully.
@@ -271,7 +295,7 @@ postRouter.post('/auth/signup', async (req, res) => {
  *           schema:
  *             $ref: '#/components/schemas/parcelData'
  *     responses:
- *       201:
+ *       200:
  *         description: Order successfully.
  *         content:
  *           application/json:

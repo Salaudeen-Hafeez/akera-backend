@@ -12,7 +12,7 @@ const options = {
     openapi: "3.0.2",
     info: {
       title: "Akera logistics API Documentation",
-      version: "0.1.0",
+      version: "1.0",
       description:
         "This is Akera logistics API application made with Express and documented with Swagger",
     },
