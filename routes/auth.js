@@ -110,7 +110,7 @@ const { sign } = jwt;
  *        - Auth
  *     summary: Login as user or admin.
  *     requestBody:
- *       description: The API to login the user
+ *       description: The requet data to login the user
  *       required: true
  *       content:
  *         application/json:
@@ -168,7 +168,7 @@ postRouter.post('/auth/login', verifyLogin, async (req, res) => {
  *     tags:
  *        - Auth
  *     requestBody:
- *       description: The API to login the user
+ *       description: The request data to create the user
  *       required: true
  *       content:
  *         application/json:
@@ -242,7 +242,7 @@ postRouter.post('/auth/signup', async (req, res) => {
  *     security:
  *       - bearerAuth: []
  *     requestBody:
- *       description: The API to create new parcel order.
+ *       description: The request data to create new parcel order.
  *       required: true
  *       content:
  *         application/json:
