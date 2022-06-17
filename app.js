@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from "swagger-ui-express"
-import postRouter from './routes/postroutes';
+import postRouter from './routes/auth';
 import getRouter from './routes/getroutes';
 import updateRouter from './routes/updateroutes';
 import deleteRouter from './routes/deleteroutes';
