@@ -23,11 +23,6 @@ const { sign } = jwt;
  * tags:
  *   - name: Auth
  *      description: Authenticating users
- */
-
-/**
- * @swagger
- * tags:
  *   - name: Parcels
  *      description: Access to parcels orders
  */
@@ -96,6 +91,42 @@ const { sign } = jwt;
  *         status:
  *           type: string
  *           example: active
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     orderRequest:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: A carton of frozen chicken
+ *         location:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         destination:
+ *           type: string
+ *           example: Adewusi street, Fadeyi Lagos
+ *         sender:
+ *           type: string
+ *           example: 08133000306
+ *         reciever:
+ *           type: string
+ *           example: 08133000306
+ *         weight:
+ *           type: string
+ *           example: 34kg
+ *         frajile:
+ *           type: string
+ *           example: Not frajile
+ *         amount:
+ *           type: string
+ *           example: NGN5,000
+ *         username:
+ *           type: string
+ *           example: Salaudeen123
  */
 
 /**
@@ -293,7 +324,7 @@ postRouter.post('/auth/signup', async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/parcelData'
+ *             $ref: '#/components/schemas/orderRequest'
  *     responses:
  *       200:
  *         description: Order successfully.

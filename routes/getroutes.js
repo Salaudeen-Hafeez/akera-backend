@@ -7,6 +7,15 @@ const getRouter = Router();
 
 /**
  * @swagger
+ * tags:
+ *   - name: Auth
+ *      description: Authenticating users
+ *   - name: Parcels
+ *      description: Access to parcels orders
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     parcelData:
