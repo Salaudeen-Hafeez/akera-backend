@@ -18,41 +18,36 @@ const updateRouter = Router();
  * @swagger
  * components:
  *   schemas:
- *     parcelData:
+ *     updatDestinationRequest:
+ *       type: object
  *       properties:
- *         username:
+ *         _destination:
  *           type: string
- *           example: Salaudeen123
- *         name:
- *           type: string
- *           example: A carton of frozen chicken
- *         location:
- *           type: string
- *           example: Adewusi street, Fadeyi Lagos
- *         destination:
- *           type: string
- *           example: Adewusi street, Fadeyi Lagos
- *         sender:
- *           type: string
- *           example: 08133000306
- *         reciever:
- *           type: string
- *           example: 08133000306
- *         frajile:
- *           type: string
- *           example: Not frajile
- *         status:
+ *           example: Adewusi street, Fadeyi, Lagos
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     updatStatusRequest:
+ *       type: object
+ *       properties:
+ *         _status:
  *           type: string
  *           example: In transit
- *         cost:
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     updatLocationRequest:
+ *       type: object
+ *       properties:
+ *         _location:
  *           type: string
- *           example: NGN5,000
- *         tracking_id:
- *           type: string
- *           example: 2236gdfrsmmb63wqlwhoq
- *         weight:
- *           type: string
- *           example: 34kg
+ *           example: In transit
  */
 
 /**
@@ -78,17 +73,10 @@ const updateRouter = Router();
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               _destination:
- *                 type: string
+ *             $ref: '#/components/schemas/updatDestinationRequest'
  *     responses:
  *       '200':
  *         description: Destination updated successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/parcelData' 
 */
 
 // UPDATE the status of the user's parcel
@@ -133,17 +121,10 @@ updateRouter.put(
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               _status:
- *                 type: string
+ *             $ref: '#/components/schemas/updatStatusRequest'
  *     responses:
  *       '200':
  *         description: Status updated successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/parcelData' 
 */
 
 // UPDATE the status of the user's parcel
@@ -193,17 +174,10 @@ updateRouter.put(
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               _location:
- *                 type: string
+ *             $ref: '#/components/schemas/updatLocationRequest'
  *     responses:
  *       '200':
  *         description: The location updated successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/parcelData' 
 */
 
 // UPDATE the status of the user's parcel

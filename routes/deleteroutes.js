@@ -15,41 +15,11 @@ const deleteRouter = Router();
 
 /**
  * @swagger
- * components:
- *   schemas:
- *     parcelData:
- *       properties:
- *         username:
- *           type: string
- *         name:
- *           type: string
- *         location:
- *           type: string
- *         destination:
- *           type: string
- *         sender:
- *           type: string
- *         reciever:
- *           type: string
- *         frajile:
- *           type: string
- *         status:
- *           type: string
- *         cost:
- *           type: string
- *         tracking_id:
- *           type: string
- *         weight:
- *           type: string
- */
-
-/**
- * @swagger
  * /parcels/{id}/delete:
  *   delete:
  *     tags:
  *        - Parcels
- *     summary: The end point to delete parcel order.
+ *     summary: Delete parcel order.
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -63,10 +33,6 @@ const deleteRouter = Router();
  *     responses:
  *       '200':
  *         description: Parcel deleted.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/parcelData' 
  */
 
 deleteRouter.delete(

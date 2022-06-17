@@ -70,33 +70,6 @@ const { sign } = jwt;
  * @swagger
  * components:
  *   schemas:
- *     returnUserData:
- *       type: object
- *       properties:
- *         id:
- *           type: integer
- *           example: 4
- *         name:
- *           type: string
- *           example: Salaudeen Hafeez
- *         username:
- *           type: string
- *           example: Salaudeen123
- *         email:
- *           type: string
- *           example: Salaudeen123@gmail.com
- *         password:
- *           type: string
- *           example: hashed password
- *         status:
- *           type: string
- *           example: active
- */
-
-/**
- * @swagger
- * components:
- *   schemas:
  *     orderRequest:
  *       type: object
  *       properties:
@@ -131,48 +104,6 @@ const { sign } = jwt;
 
 /**
  * @swagger
- * components:
- *   schemas:
- *     parcelData:
- *       type: object
- *       properties:
- *         username:
- *           type: string
- *           example: Salaudeen123
- *         name:
- *           type: string
- *           example: A carton of frozen chicken
- *         location:
- *           type: string
- *           example: Adewusi street, Fadeyi Lagos
- *         destination:
- *           type: string
- *           example: Adewusi street, Fadeyi Lagos
- *         sender:
- *           type: string
- *           example: 08133000306
- *         reciever:
- *           type: string
- *           example: 08133000306
- *         frajile:
- *           type: string
- *           example: Not frajile
- *         status:
- *           type: string
- *           example: In transit
- *         cost:
- *           type: string
- *           example: NGN5,000
- *         tracking_id:
- *           type: string
- *           example: 2236gdfrsmmb63wqlwhoq
- *         weight:
- *           type: string
- *           example: 34kg
- */
-
-/**
- * @swagger
  * /auth/login:
  *   post:
  *     tags:
@@ -188,10 +119,6 @@ const { sign } = jwt;
  *     responses:
  *       '200':
  *         description: Logged in successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/returnUserData' 
  */
 
 /* User login, first verify login credential using verifyLogin 
@@ -248,12 +175,8 @@ postRouter.post('/auth/login', verifyLogin, async (req, res) => {
  *           schema:
  *             $ref: '#/components/schemas/signupRequest'
  *     responses:
- *       '201':
+ *       '200':
  *         description: User created successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/userData' 
 */
 
 /* Validate the new incoming user data. Then check if 
@@ -327,11 +250,7 @@ postRouter.post('/auth/signup', async (req, res) => {
  *             $ref: '#/components/schemas/orderRequest'
  *     responses:
  *       200:
- *         description: Order successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/parcelData' 
+ *         description: Order created successfully.
 */
 
 /* Verify the user token using verifyToken middle ware. if 
