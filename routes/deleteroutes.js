@@ -45,7 +45,7 @@ const deleteRouter = Router();
 
 /**
  * @swagger
- * /parcels/{id}/status:
+ * /parcels/{id}/delete:
  *   delete:
  *     tags:
  *        - Parcels
