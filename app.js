@@ -46,7 +46,7 @@ app.set('view engine', 'ejs');
 // The middleware for the home page
 app.get('/', (req, res) => {
   res.send(
-  <div id="mapcontainer" style="width: 100%;
+  <div style="width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;">
