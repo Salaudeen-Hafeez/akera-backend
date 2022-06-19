@@ -46,7 +46,7 @@ app.set('view engine', 'ejs');
 // The middleware for the home page
 app.get('/', (req, res) => {
   res.send(
-  '<h2>Welcom to Akera logistics API</h2>'
+  '<h2>Welcom to Akera logistics <a href="https://akera-backend.herokuapp.com/api-docs">API</a></h2>'
   );
 });
 
